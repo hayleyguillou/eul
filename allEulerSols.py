@@ -1,4 +1,5 @@
 import eul
+import math
 import functools
 import operator
 
@@ -114,6 +115,13 @@ def eul20():
     return sum(int(digit) for digit in str(math.factorial(100)))
 
 
+def eul21():
+    """Evaluate the sum of all the amicable numbers under 10000."""
+    return sum([x for x in range(1, 10000) if
+                x != sum(eul.get_proper_divisors(x)) and sum(
+                    eul.get_proper_divisors(sum(eul.get_proper_divisors(x)))) == x])
+
+
 print("Euler solution 1:   ", eul1())
 print("Euler solution 2:   ", eul2())
 print("Euler solution 3:   ", eul3())
@@ -126,3 +134,5 @@ print("Euler solution 10:  ", eul10())
 print("Euler solution 12:  ", eul12())
 print("Euler solution 14:  ", eul14())
 print("Euler solution 16:  ", eul16())
+print("Euler solution 20:  ", eul20())
+print("Euler solution 21:  ", eul21())

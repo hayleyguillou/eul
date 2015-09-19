@@ -38,102 +38,7 @@ def isPalindrome(n):
     
 #problem solutions
 
-def euler1():
-    sum = 0
 
-    for i in range(1000):
-        if i % 3 == 0 or i % 5 == 0:
-            sum = sum + i
-
-    print sum
-    
-    
-def euler2():
-    sum = 0
-
-    prev = 1
-    curr = 2
-
-    while curr < 4000000:
-        if curr % 2 == 0:
-            sum = sum + curr
-
-        temp = curr
-        curr = curr + prev
-        prev = temp
-
-    print sum
-    
-    
-def euler4():
-    maxNum = 999
-    minNum = 100
-
-    maxPalin = 0
-    import time
-
-    tStart = time.time()
-    for i in xrange(maxNum, minNum, -1):
-        for j in xrange(maxNum, i, -1):
-            palin = i*j
-            if palin == int(`palin`[::-1]) and palin > maxPalin:
-                maxPalin = palin
-
-    print maxPalin
-    print "run time = " + str((time.time() - tStart))
-
-    
-#euler5 - pen and paper
-
-def euler6():
-    print( sum([x for x in range(1,101)])**2 - sum([x**2 for x in range(1,101)]))
-
-
-def euler8():
-    from functools import reduce
-    from operator import mul
-
-    test = "7316717653133062491922511967442657474235534919493496983520312774506326239578318016984801869478851843858615607891129494954595017379583319528532088055111254069874715852386305071569329096329522744304355766896648950445244523161731856403098711121722383113622298934233803081353362766142828064444866452387493035890729629049156044077239071381051585930796086670172427121883998797908792274921901699720888093776657273330010533678812202354218097512545405947522435258490771167055601360483958644670632441572215539753697817977846174064955149290862569321978468622482839722413756570560574902614079729686524145351004748216637048440319989000889524345065854122758866688116427171479924442928230863465674813919123162824586178664583591245665294765456828489128831426076900422421902267105562632111110937054421750694165896040807198403850962455444362981230987879927244284909188845801561660979191338754992005240636899125607176060588611646710940507754100225698315520005593572972571636269561882670428252483600823257530420752963450"
-
-    words = [test[i:i+13] for i in range(len(test)-13)]
-    products = []
-    for word in words:
-        products.append(reduce(mul,[int(x) for x in word], 1))
-
-    print (max(products))
-    
-#rewrite this shite
-def euler9():
-    for c in range(1000,0,-1):
-        for b in range(1000,0,-1):
-            for a in range(1000,0,-1):
-                if a + b + c == 1000:
-                    #print (a,b,c)
-                    if (a**2)+(b**2) == (c**2):
-                        print (a*b*c)
-                        break
-
-                        
-def euler10():
-    sieve = sieveIt(2000000)
-
-    primes = []
-    for i in range(2,2000000):
-        if sieve[i]:
-            primes.append(i)
-
-    print (sum(primes))
-    
-    
-def euler12():
-    currNum = 1
-    iter = 2
-    while len(getFactors(currNum)) < 500:
-        currNum += iter
-        iter += 1
-        if iter % 1000 == 0:
-            print (iter)
-    print (currNum)
 
 
 
@@ -226,23 +131,6 @@ def euler17():
     print num
    
 
-def euler20():
-    return (sum(int(digit) for digit in str(math.factorial(100))))
-
-    
-def euler21():
-    def factors(n):
-	   return {x for x in range(1, (n + 1) // 2 + 1) if n % x == 0 and n != x}
-
-    amicables = set()
-
-    for i in xrange(1,10000):
-        j = sum(factors(i))
-        if j > i and j < 10000:
-            if sum(factors(j)) == i:
-                amicables.update([i,j])
-
-    print sum(amicables)
     
 def euler23():
     def factors(n):
