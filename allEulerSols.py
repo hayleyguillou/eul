@@ -154,6 +154,11 @@ def eul34():
     return sum([i for i in range(3, 100000) if sum([math.factorial(x) for x in eul.get_digits(i)]) == i])
 
 
+def eul36(n):
+    """Find the sum of all numbers, less than n = one million, which are palindromic in base 10 and base 2."""
+    return sum([x for x in range(1, 1000001) if eul.palindrome(x) and eul.palindrome(str(bin(x))[2:])])
+
+
 print("Euler solution 1:   ", eul1())
 print("Euler solution 2:   ", eul2())
 print("Euler solution 3:   ", eul3())
@@ -173,3 +178,4 @@ print("Euler solution 25:  ", eul25())
 print("Euler solution 29:  ", eul29())
 print("Euler solution 30:  ", eul30())
 print("Euler solution 34:  ", eul34())
+print("Euler solution 36:  ", eul36())
