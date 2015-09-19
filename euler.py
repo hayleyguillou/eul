@@ -168,7 +168,7 @@ def euler16():
                 digits.append(num%10)
                 num = int(num / 10)
 
-    print sum(digits)
+    print(sum(digits))
 
 
 def euler17():
