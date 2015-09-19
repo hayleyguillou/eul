@@ -122,6 +122,14 @@ def eul21():
                     eul.get_proper_divisors(sum(eul.get_proper_divisors(x)))) == x])
 
 
+def eul23():
+    """Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers."""
+    upper = 28123
+    abundants = set([x for x in range(12, upper) if sum(eul.get_proper_divisors(x)) > x])
+    abundant_sums = set([(i + j) for i in abundants for j in abundants if i+j < upper])
+    return sum(set([x for x in range(1, upper)]) - abundant_sums)
+
+
 print("Euler solution 1:   ", eul1())
 print("Euler solution 2:   ", eul2())
 print("Euler solution 3:   ", eul3())
@@ -136,3 +144,4 @@ print("Euler solution 14:  ", eul14())
 print("Euler solution 16:  ", eul16())
 print("Euler solution 20:  ", eul20())
 print("Euler solution 21:  ", eul21())
+print("Euler solution 23:  ", eul23())
