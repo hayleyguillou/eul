@@ -149,6 +149,11 @@ def eul30():
     return sum([x for x in range(2, 1000000) if sum([y**5 for y in eul.get_digits(x)]) == x])
 
 
+def eul34():
+    """Find the sum of all numbers which are equal to the sum of the factorial of their digits."""
+    return sum([i for i in range(3, 100000) if sum([math.factorial(x) for x in eul.get_digits(i)]) == i])
+
+
 print("Euler solution 1:   ", eul1())
 print("Euler solution 2:   ", eul2())
 print("Euler solution 3:   ", eul3())
@@ -167,3 +172,4 @@ print("Euler solution 23:  ", eul23())
 print("Euler solution 25:  ", eul25())
 print("Euler solution 29:  ", eul29())
 print("Euler solution 30:  ", eul30())
+print("Euler solution 34:  ", eul34())
