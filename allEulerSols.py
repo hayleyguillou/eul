@@ -130,6 +130,15 @@ def eul23():
     return sum(set([x for x in range(1, upper)]) - abundant_sums)
 
 
+def eul25():
+    """What is the index of the first term in the Fibonacci sequence to contain 1000 digits?"""
+    index, a, b = 1, 0, 1
+    while len(str(b)) < 1000:
+        a, b = b, a + b
+        index += 1
+    return index
+
+
 print("Euler solution 1:   ", eul1())
 print("Euler solution 2:   ", eul2())
 print("Euler solution 3:   ", eul3())
@@ -145,3 +154,4 @@ print("Euler solution 16:  ", eul16())
 print("Euler solution 20:  ", eul20())
 print("Euler solution 21:  ", eul21())
 print("Euler solution 23:  ", eul23())
+print("Euler solution 25:  ", eul25())
