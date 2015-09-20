@@ -1,5 +1,6 @@
 import math
 
+
 # TODO: Optimize
 def eul44():
     """Find the pair of pentagonal numbers, Pj and Pk, for which their sum and difference are pentagonal

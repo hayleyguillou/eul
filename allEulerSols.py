@@ -133,7 +133,7 @@ def eul23():
 def eul25():
     """What is the index of the first term in the Fibonacci sequence to contain 1000 digits?"""
     index, a, b = 1, 0, 1
-    while len(str(b)) < 1000:
+    while eul.num_len(b) < 1000:
         a, b = b, a + b
         index += 1
     return index
@@ -163,7 +163,7 @@ def eul38():
     """What is the largest 1 to 9 pandigital 9-digit number that can be formed as the concatenated product of an integer
      with (1,2, ... , n) where n > 1?"""
     pandigitals = []
-    check = set([1, 2, 3, 4, 5, 6, 7, 8, 9])
+    check = {1, 2, 3, 4, 5, 6, 7, 8, 9}
     for n in range(1, 100000):
         concat, i = "", 1
         while len(concat) < 10:
