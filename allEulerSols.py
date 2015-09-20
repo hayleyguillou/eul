@@ -126,7 +126,7 @@ def eul23():
     """Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers."""
     upper = 28123
     abundants = set([x for x in range(12, upper) if sum(eul.get_proper_divisors(x)) > x])
-    abundant_sums = set([(i + j) for i in abundants for j in abundants if i+j < upper])
+    abundant_sums = set([(i + j) for i in abundants for j in abundants if i + j < upper])
     return sum(set([x for x in range(1, upper)]) - abundant_sums)
 
 
@@ -146,7 +146,7 @@ def eul29():
 
 def eul30():
     """Find the sum of all the numbers that can be written as the sum of fifth powers of their digits."""
-    return sum([x for x in range(2, 1000000) if sum([y**5 for y in eul.get_digits(x)]) == x])
+    return sum([x for x in range(2, 1000000) if sum([y ** 5 for y in eul.get_digits(x)]) == x])
 
 
 def eul34():
@@ -157,6 +157,22 @@ def eul34():
 def eul36(n):
     """Find the sum of all numbers, less than n = one million, which are palindromic in base 10 and base 2."""
     return sum([x for x in range(1, 1000001) if eul.palindrome(x) and eul.palindrome(str(bin(x))[2:])])
+
+
+def eul38():
+    """What is the largest 1 to 9 pandigital 9-digit number that can be formed as the concatenated product of an integer
+     with (1,2, ... , n) where n > 1?"""
+    pandigitals = []
+    check = set([1, 2, 3, 4, 5, 6, 7, 8, 9])
+    for n in range(1, 100000):
+        concat, i = "", 1
+        while len(concat) < 10:
+            concat += str(n * i)
+            if len(concat) == 9:
+                if set([int(x) for x in concat]) == check:
+                    pandigitals.append(int(concat))
+            i += 1
+    return max(pandigitals)
 
 
 print("Euler solution 1:   ", eul1())
@@ -179,3 +195,4 @@ print("Euler solution 29:  ", eul29())
 print("Euler solution 30:  ", eul30())
 print("Euler solution 34:  ", eul34())
 print("Euler solution 36:  ", eul36())
+print("Euler solution 38:  ", eul38())
