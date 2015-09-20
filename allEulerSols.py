@@ -175,6 +175,14 @@ def eul38():
     return max(pandigitals)
 
 
+def eul40():
+    """An irrational decimal fraction is created by concatenating the positive integers: 0.123456789101112131415...
+    If dn represents the nth digit of the fractional part, find the value of the following expression.
+    d1 × d10 × d100 × d1000 × d10000 × d100000 × d1000000"""
+    num = ''.join([str(x) for x in range(0, 1000000)])
+    return functools.reduce(operator.mul, [int(num[10 ** n]) for n in range(0, 6)], 1)
+
+
 print("Euler solution 1:   ", eul1())
 print("Euler solution 2:   ", eul2())
 print("Euler solution 3:   ", eul3())
@@ -196,3 +204,4 @@ print("Euler solution 30:  ", eul30())
 print("Euler solution 34:  ", eul34())
 print("Euler solution 36:  ", eul36())
 print("Euler solution 38:  ", eul38())
+print("Euler solution 40:  ", eul40())
