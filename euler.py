@@ -566,3 +566,13 @@ def euler348():
             print(p)
     print(min5)
     print(sum(min5))
+
+
+
+def euler491()
+#NOT DONE
+    from itertools import permutations
+
+    all = set([int(''.join(x)) for x in permutations('001122334455') if x[0] != '0'])
+    print(len(all))
+    print(len([x for x in all if x%11==0]))
