@@ -130,6 +130,10 @@ def eul23():
     return sum(set([x for x in range(1, upper)]) - abundant_sums)
 
 
+def eul24():
+	"""What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?"""
+	return sorted([''.join(p) for p in permutations('0123456789')])[1000000-1]
+
 def eul25():
     """What is the index of the first term in the Fibonacci sequence to contain 1000 digits?"""
     index, a, b = 1, 0, 1
@@ -198,6 +202,7 @@ print("Euler solution 16:  ", eul16())
 print("Euler solution 20:  ", eul20())
 print("Euler solution 21:  ", eul21())
 print("Euler solution 23:  ", eul23())
+print("Euler solution 24:  ", eul24())
 print("Euler solution 25:  ", eul25())
 print("Euler solution 29:  ", eul29())
 print("Euler solution 30:  ", eul30())
