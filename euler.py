@@ -499,3 +499,70 @@ def euler112():
         prop = numBouncy/curr
 
     print(curr, prop)
+
+
+def euler125():
+    import math
+    
+    def palindrome(n):
+        return True if (str(n))[::-1] == str(n) else False
+    
+    def eul125(n):
+        palins = set()
+        for starting_num in range(1,int(math.sqrt(n))):
+            conseq = 2
+            s = 0
+            while s < n:
+                s = sum([(starting_num + x)**2 for x in range(0,conseq)])
+                if s < n and palindrome(s) :
+                    palins.add(s)
+                    print(sum(palins))
+                conseq += 1
+                    
+    eul125(100000000)
+    
+    
+def euler348():
+    from itertools import count
+    import math
+    
+    def getPalindrome():
+        """
+            Generator for palindromes.
+            Generates palindromes, starting with 0.
+            A palindrome is a number which reads the same in both directions.
+        """
+        yield 0
+        for digits in count(1):
+            first = 10 ** ((digits - 1) // 2)
+            for s in map(str, range(first, 10 * first)):
+                yield int(s + s[-(digits % 2)-1::-1])
+    
+    def allPalindromes(minP, maxP):
+        """Get a sorted list of all palindromes in intervall [minP, maxP]."""
+        palindromGenerator = getPalindrome()
+        palindromeList = []
+        for palindrome in palindromGenerator:
+            if palindrome > maxP:
+                break
+            if palindrome < minP:
+                continue
+            palindromeList.append(palindrome)
+        return palindromeList
+        
+    palindromes = allPalindromes(5229225, 10**10)
+    min5 = set()
+    for p in palindromes:
+        cube_limit = int(math.pow(p, 1/3)) - 1
+        count = 0
+        for c in range(1,cube_limit):
+            s = math.sqrt(p - c**3)
+            if s == int(s):
+                count += 1
+        if count == 4:
+            min5.add(p)
+            if len(min5) == 5:
+                break
+            print(p)
+    print(min5)
+    print(sum(min5))
