@@ -427,3 +427,22 @@ def euler112():
         prop = numBouncy/curr
 
     print(curr, prop)
+    
+    
+def euler43():
+    from itertools import permutations
+    def isGood(p):
+    	if p[5] != '5' and p[5] != '0': 
+    		return False
+    	elif int(p[3]) % 2 != 0: 
+    		return False
+    	elif sum([int(d) for d in p[2:5]]) % 3 != 0: 
+    		return False
+    	elif int(p[4:7]) % 7 != 0: return False
+    	#if int(p[5:8]) % 11 != 0: return False
+    	else: 
+    		return True
+    	
+    
+    perms = [p for p in list(permutations('1234567890')) if isGood(p)]
+    print(len(perms))
