@@ -1,4 +1,12 @@
-def eul24():
+from itertools import permutations
+
+
+def eul24(n):
+	"""What is the n = millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?"""
+	return sorted([''.join(p) for p in permutations('0123456789')])[n-1]
+
+
+def eul24bf():
     """What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?"""
     max = 10
 
@@ -51,5 +59,6 @@ def eul24():
                 checker[b] = False
         checker[a] = False
 
-print(eul24())
+
+print(eul24(1000000))
 # 2783915460
