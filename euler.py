@@ -239,6 +239,59 @@ def euler34():
             specials.append(i)
             print (specials)
 
+
+def euler35():
+	import math
+	from itertools import permutations
+	
+	def check_digits(n):
+	    while n > 0:
+	        digit = n % 10
+	        if digit==5 or digit%2==0:
+	            return False
+	        n = int(n/10)
+	    return True
+	
+	def sieve(n):
+	    # returns all primes between 2 and n
+	    s = [True]*(n + 1)
+	    s[0], s[1] = False, False
+	    
+	    for i in range(2, int(math.sqrt(n))):
+	        curr = i + i
+	        while curr <= n:
+	            s[curr] = False
+	            curr += i
+	    return [i for i in range(len(s)) if s[i] is True]
+	
+	def eul35(n):
+	    """How many circular primes are there below n = one million?"""
+	    primes = [p for p in sieve(n) if check_digits(p)]
+	
+	    circs = {2,5}
+	    for prime in primes:
+	        if prime not in circs:
+	
+	            perms = {prime}
+	            for i in range(0, len(str(prime))-1):
+	                prime = int(str(prime)[1:]) * 10 + int(str(prime)[0])
+	                perms.add(prime)
+	
+	            circ = True
+	            for perm in perms:
+	                if perm not in primes:
+	                    circ = False
+	                    break
+	            if circ:
+	                circs.update(perms)
+	
+	    return len(circs)
+	
+	print(eul35(1000000))
+	
+	#2, 3, 5, 7, 11, 13, 17, 31, 37, 71, 73, 79, and 97.
+
+
 def euler36():
     return sum([ x  for x in range(1, 1000001) if isPalindrome(x) and isPalindrome(str(bin(x))[2:]) ])
 
