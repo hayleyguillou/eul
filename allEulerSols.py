@@ -159,6 +159,15 @@ def eul14():
     return chains.index(max(chains))
 
 
+def eul15():
+    """How many such routes are there through a 20×20 grid?"""
+    d = [[1 for x in range(20 + 1)] for x in range(20 + 1)]
+    for i in range(1, 20 + 1):
+        for j in range(1, 20 + 1):
+            d[i][j] = d[i - 1][j] + d[i][j - 1]
+    return d[20][20]
+
+
 def eul16():
     """What is the sum of the digits of the number 2^n = 1000?"""
     return sum([x for x in eul.get_digits(2 ** 1000)])
@@ -256,6 +265,7 @@ print("Euler solution 11:  ", eul11())
 print("Euler solution 12:  ", eul12())
 print("Euler solution 13:  ", eul13())
 print("Euler solution 14:  ", eul14())
+print("Euler solution 15:  ", eul15())
 print("Euler solution 16:  ", eul16())
 print("Euler solution 20:  ", eul20())
 print("Euler solution 21:  ", eul21())
