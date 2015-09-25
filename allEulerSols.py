@@ -3,6 +3,7 @@ import math
 import functools
 import operator
 import itertools
+import calendar
 
 
 def eul1():
@@ -239,6 +240,12 @@ def eul18():
     return data[0][0]
 
 
+def eul19():
+    """How many Sundays fell on the first of the month during the twentieth century (1 Jan 1901 to 31 Dec 2000)?"""
+    return len([(year, month) for year in range(1901, 2000 + 1) for month in range(1, 12 + 1)
+                if calendar.weekday(year, month, 1) == 6])
+
+
 def eul20():
     """Find the sum of the digits in the number n = 100!"""
     return sum(int(digit) for digit in str(math.factorial(100)))
@@ -347,6 +354,7 @@ print("Euler solution 15:  ", eul15())
 print("Euler solution 16:  ", eul16())
 print("Euler solution 17:  ", eul17())
 print("Euler solution 18:  ", eul18())
+print("Euler solution 19:  ", eul19())
 print("Euler solution 20:  ", eul20())
 print("Euler solution 21:  ", eul21())
 print("Euler solution 23:  ", eul23())
