@@ -7,4 +7,4 @@ def eul15(n):
     return d[n][n]
 
 print(eul15(20))
-
+# 137846528820
