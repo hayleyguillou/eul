@@ -30,6 +30,20 @@ def eul4():
     return max([x * y for x in range(100, 1000) for y in range(100, 1000) if eul.palindrome(x * y)])
 
 
+def eul5():
+    """What is the smallest positive number that is evenly divisible by all of the numbers from 1 to n = 20?"""
+    primer = functools.reduce(operator.mul, eul.sieve(20), 1)
+    for i in range(primer, math.factorial(20) + 1, primer):
+        divisible = True
+        for factor in range(1, 20+1):
+            if i % factor != 0:
+                divisible = False
+                break
+        if divisible:
+            return i
+    return math.factorial(20)
+
+
 def eul6():
     """Find the difference between the sum of the squares of the first one hundred natural numbers and the
     square of the sum."""
@@ -131,8 +145,9 @@ def eul23():
 
 
 def eul24():
-	"""What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?"""
-	return sorted([''.join(p) for p in permutations('0123456789')])[1000000-1]
+    """What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?"""
+    return sorted([''.join(p) for p in permutations('0123456789')])[1000000 - 1]
+
 
 def eul25():
     """What is the index of the first term in the Fibonacci sequence to contain 1000 digits?"""
@@ -191,6 +206,7 @@ print("Euler solution 1:   ", eul1())
 print("Euler solution 2:   ", eul2())
 print("Euler solution 3:   ", eul3())
 print("Euler solution 4:   ", eul4())
+print("Euler solution 5:   ", eul5())
 print("Euler solution 6:   ", eul6())
 print("Euler solution 7:   ", eul7())
 print("Euler solution 8:   ", eul8())
