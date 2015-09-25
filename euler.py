@@ -471,6 +471,22 @@ def euler63():
                 p.add(num)
     print (len(p))
     
+    
+def euler71():
+    #this is some bullshite
+    from fractions import gcd
+    from math import fabs
+    
+    propers = []
+    for d in range(1,1000001):
+        for n in range(int((d*3)/7), int((d*3)/7)+1):
+            if gcd(n,d) == 1:
+                if fabs(3/7 - n/d) < 0.0000005:
+                    propers.append((n/d,n,d))
+                    #print(n,d,len(propers))
+    
+    lst = sorted(propers, key=lambda x: x[0])
+    print(lst)
 
 def euler74():
     count = 0
