@@ -487,7 +487,21 @@ def euler71():
     
     lst = sorted(propers, key=lambda x: x[0])
     print(lst)
+    
+def euler73():
+    from fractions import gcd
 
+
+    count = 0
+    for d in range(1,12000 +1):
+    	for n in range(int(d/3),int(d/2)+1):
+    		if gcd(n,d) == 1:
+    			if n/d > 1/3 and n/d < 1/2:
+    				count += 1
+    				if count % 1000000 == 0: print(count)
+    
+    print(count)
+    
 def euler74():
     count = 0
     for i in range (1,1000000):
