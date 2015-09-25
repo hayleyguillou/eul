@@ -358,6 +358,42 @@ def euler45():
 def euler48():
     print (sum([ (i**i)%(10**10) for i in range(1, 1001) ])%(10**10))
 
+
+def euler50():
+    #DOESN'T STOP????
+	import math
+    
+    def sieve(n):
+        # returns all primes between 2 and n
+        s = [True]*(n + 1)
+        s[0], s[1] = False, False
+    
+        for i in range(2, int(math.sqrt(n))):
+            curr = i + i
+            while curr <= n:
+                s[curr] = False
+                curr += i
+        return [i for i in range(len(s)) if s[i] is True]
+        
+        
+    primes = sieve(1000000)
+    print(len(primes))
+    
+    conseq = 0
+    maximum = 0
+    
+    for start in range(0, len(primes) - 2):
+        for num in range(2, len(primes) - start):
+            test = sum(primes[i] for i in range(start, start + num))
+            if test > 1000000:
+                break
+            if test in primes and num > conseq:
+                conseq = num
+                maximum = test
+                print(maximum)
+                print(test,start, num)
+
+
 def euler52():
     def getDigits(n):
         return sorted([int(i) for i in str(n)], key=int)
