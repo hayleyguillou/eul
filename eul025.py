@@ -10,4 +10,4 @@ def eul25(n):
     return index
 
 print(eul25(1000))
-#4782
+# 4782

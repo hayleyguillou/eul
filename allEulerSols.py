@@ -2,6 +2,7 @@ import eul
 import math
 import functools
 import operator
+import itertools
 
 
 def eul1():
@@ -91,6 +92,37 @@ def eul10():
     return sum(eul.sieve(2000000))
 
 
+def eul11():
+    """What is the greatest product of four adjacent numbers in the same direction
+    (up, down, left, right, or diagonally) in the 20×20 grid (largestProduct.txt)?"""
+    text_file = open("resources/largestProduct.txt", "r")
+    data = [[int(n) for n in line.split()] for line in text_file]
+    text_file.close()
+
+    max_product = 0
+    # rows/columns
+    for i in range(20):
+        for j in range(16):
+            product = data[i][j] * data[i][j + 1] * data[i][j + 2] * data[i][j + 3]
+            if product > max_product:
+                max_product = product
+            product = data[j][i] * data[j + 1][i] * data[j + 2][i] * data[j + 3][i]
+            if product > max_product:
+                max_product = product
+
+    # diagonals
+    for i in range(16):
+        for j in range(16):
+            product = data[i][j] * data[i + 1][j + 1] * data[i + 2][j + 2] * data[i + 2][j + 3]
+            if product > max_product:
+                max_product = product
+            product = data[i][19 - j] * data[i + 1][18 - j] * data[i + 2][17 - j] * data[i + 3][16 - j]
+            if product > max_product:
+                max_product = product
+
+    return max_product
+
+
 def eul12():
     """What is the value of the first triangle number to have over five hundred divisors?"""
     total = 1
@@ -99,6 +131,14 @@ def eul12():
         total += curr
         curr += 1
     return total
+
+
+def eul13():
+    """Work out the first ten digits of the sum of the following one-hundred 50-digit numbers (largeSum.txt)"""
+    text_file = open("resources/largeSum.txt", "r")
+    data = [int(n) for n in text_file]
+    text_file.close()
+    return int(str(sum(data))[0:10])
 
 
 def eul14():
@@ -146,7 +186,7 @@ def eul23():
 
 def eul24():
     """What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?"""
-    return sorted([''.join(p) for p in permutations('0123456789')])[1000000 - 1]
+    return sorted([''.join(p) for p in itertools.permutations('0123456789')])[1000000 - 1]
 
 
 def eul25():
@@ -173,7 +213,7 @@ def eul34():
     return sum([i for i in range(3, 100000) if sum([math.factorial(x) for x in eul.get_digits(i)]) == i])
 
 
-def eul36(n):
+def eul36():
     """Find the sum of all numbers, less than n = one million, which are palindromic in base 10 and base 2."""
     return sum([x for x in range(1, 1000001) if eul.palindrome(x) and eul.palindrome(str(bin(x))[2:])])
 
@@ -212,7 +252,9 @@ print("Euler solution 7:   ", eul7())
 print("Euler solution 8:   ", eul8())
 print("Euler solution 9:   ", eul9())
 print("Euler solution 10:  ", eul10())
+print("Euler solution 11:  ", eul11())
 print("Euler solution 12:  ", eul12())
+print("Euler solution 13:  ", eul13())
 print("Euler solution 14:  ", eul14())
 print("Euler solution 16:  ", eul16())
 print("Euler solution 20:  ", eul20())
