@@ -317,6 +317,18 @@ def eul40():
     return functools.reduce(operator.mul, [int(num[10 ** n]) for n in range(0, 6)], 1)
 
 
+def eul67():
+    """Find the maximum total from top to bottom of the triangle below (maximumPath2.txt):"""
+    text_file = open("resources/maximumPath2.txt", "r")
+    data = [[int(n) for n in line.split()] for line in text_file]
+    text_file.close()
+
+    for i in range(len(data) - 2, -1, -1):
+        for j in range(len(data[i])):
+            data[i][j] += max(data[i + 1][j], data[i + 1][j + 1])
+    return data[0][0]
+
+
 print("Euler solution 1:   ", eul1())
 print("Euler solution 2:   ", eul2())
 print("Euler solution 3:   ", eul3())
@@ -346,3 +358,4 @@ print("Euler solution 34:  ", eul34())
 print("Euler solution 36:  ", eul36())
 print("Euler solution 38:  ", eul38())
 print("Euler solution 40:  ", eul40())
+print("Euler solution 67:  ", eul67())
