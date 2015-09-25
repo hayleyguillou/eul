@@ -294,6 +294,49 @@ def euler35():
 
 def euler36():
     return sum([ x  for x in range(1, 1000001) if isPalindrome(x) and isPalindrome(str(bin(x))[2:]) ])
+    
+def euler37():
+    import math
+
+    def sieve(n):
+        # returns all primes between 2 and n
+        s = [True]*(n + 1)
+        s[0], s[1] = False, False
+        
+        for i in range(2, int(math.sqrt(n))):
+            curr = i + i
+            while curr <= n:
+                s[curr] = False
+                curr += i
+        return [i for i in range(len(s)) if s[i] is True]
+    
+    def odd(n):
+        return True if len([d for d in str(n) if int(d) % 2 == 0]) == 0 else False
+    
+    
+    primes = [p for p in sieve(1000000) if odd(p)]
+    truncs = {23}
+    index = 4
+    while index < len(primes):
+        left = right = primes[index]
+        prime = True
+        while left > 0 and prime:
+            if left not in primes:
+                prime = False
+            left = int(left/10)
+        
+        if prime:
+            iterator = 10
+            while iterator < right:
+                if right % iterator not in primes:
+                    prime = False
+                iterator *= 10
+        
+        if prime: 
+            truncs.add(primes[index])
+        index += 1
+        
+    print(sum(truncs))
 
 def euler38():
     max = 0
