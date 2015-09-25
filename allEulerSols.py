@@ -258,6 +258,14 @@ def eul21():
                     eul.get_proper_divisors(sum(eul.get_proper_divisors(x)))) == x])
 
 
+def eul22():
+    """What is the total of all the name scores in the file (names.txt)?"""
+    with open('resources/names.txt') as f:
+        names = f.read().split(',')
+        names.sort()
+    return sum(i*sum(ord(c) - 64 for c in x.strip('"')) for i, x in enumerate(names, 1))
+
+
 def eul23():
     """Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers."""
     upper = 28123
@@ -357,6 +365,7 @@ print("Euler solution 18:  ", eul18())
 print("Euler solution 19:  ", eul19())
 print("Euler solution 20:  ", eul20())
 print("Euler solution 21:  ", eul21())
+print("Euler solution 22:  ", eul22())
 print("Euler solution 23:  ", eul23())
 print("Euler solution 24:  ", eul24())
 print("Euler solution 25:  ", eul25())
