@@ -227,6 +227,18 @@ def eul17():
     return num
 
 
+def eul18():
+    """Find the maximum total from top to bottom of the triangle below (maximumPath1.txt):"""
+    text_file = open("resources/maximumPath1.txt", "r")
+    data = [[int(n) for n in line.split()] for line in text_file]
+    text_file.close()
+
+    for i in range(len(data) - 2, -1, -1):
+        for j in range(len(data[i])):
+            data[i][j] += max(data[i + 1][j], data[i + 1][j + 1])
+    return data[0][0]
+
+
 def eul20():
     """Find the sum of the digits in the number n = 100!"""
     return sum(int(digit) for digit in str(math.factorial(100)))
@@ -322,6 +334,7 @@ print("Euler solution 14:  ", eul14())
 print("Euler solution 15:  ", eul15())
 print("Euler solution 16:  ", eul16())
 print("Euler solution 17:  ", eul17())
+print("Euler solution 18:  ", eul18())
 print("Euler solution 20:  ", eul20())
 print("Euler solution 21:  ", eul21())
 print("Euler solution 23:  ", eul23())
