@@ -285,6 +285,23 @@ def euler38():
             iter += 1
     print(max)
     
+def euler39():
+    maxlen = 0
+    the_p = 0
+    for p in range(3,1001):
+        sols = set()
+        for c in range(int(p/3)+ 1, p-1):
+            for b in range(1, p-c-1):
+                a = p - c - b
+                if a**2 + b**2 == c**2:
+                    sols.add(tuple(sorted([a,b,c])))
+        if len(sols) > maxlen:
+            maxlen = len(sols)
+            the_p = p
+        print(p, the_p, maxlen)
+            
+    print(p)
+    
     
 def euler40():
     num = ''.join([str(x) for x in range(0,1000000)])
