@@ -377,6 +377,33 @@ def euler48():
     print (sum([ (i**i)%(10**10) for i in range(1, 1001) ])%(10**10))
 
 
+def euler49():
+	import math
+    import itertools
+    def sieve(n):
+        # returns all primes between 2 and n
+        s = [True]*(n + 1)
+        s[0], s[1] = False, False
+    
+        for i in range(2, int(math.sqrt(n))):
+            curr = i + i
+            while curr <= n:
+                s[curr] = False
+                curr += i
+        return [i for i in range(len(s)) if s[i] is True]
+    
+    def eul49():    
+        primes = sieve(10000)
+        for prime in primes:
+            if prime > 1000:
+                perms = set([int(''.join(p)) for p in itertools.permutations(str(prime)) if int(''.join(p)) > 1000])
+                inter = sorted(list(perms.intersection(primes)))
+                if len(inter) >= 3:
+                    for combo in itertools.combinations(inter, 3):
+                        if combo[0] != 1487 and combo[2]-combo[1] == combo[1]-combo[0]:
+                            return ''.join(sorted([str(p) for p in combo]))
+    print(eul49())
+
 def euler50():
     #DOESN'T STOP????
 	import math
