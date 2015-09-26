@@ -373,6 +373,38 @@ def euler45():
     print(T&H&P)
     
     
+def euler47():
+    import math
+    import itertools
+    def sieve(n):
+        # returns all primes between 2 and n
+        s = [True]*(n + 1)
+        s[0], s[1] = False, False
+    
+        for i in range(2, int(math.sqrt(n))):
+            curr = i + i
+            while curr <= n:
+                s[curr] = False
+                curr += i
+        return [i for i in range(len(s)) if s[i] is True]
+    
+    def get_proper_divisors(n):
+        return {x for x in range(1, (n + 1) // 2 + 1) if n % x == 0 and n != x}
+        
+    def eul47():
+        curr_n = 0
+        primes = sieve(1000000)
+        for n in range(20000,2000000):
+            if len(set(get_proper_divisors(n).intersection(primes))) != 4:
+                curr_n = 0
+            elif not curr_n:
+                curr_n = n
+            elif n - curr_n == 3:
+                return curr_n
+            if curr_n: print(n, n-curr_n)
+    print(eul47())
+    
+    
 def euler48():
     print (sum([ (i**i)%(10**10) for i in range(1, 1001) ])%(10**10))
 
