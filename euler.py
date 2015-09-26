@@ -584,6 +584,15 @@ def euler125():
     eul125(100000000)
     
     
+def euler179():
+    n = [0]*10000001
+    for i in range(2, int(10000000/2)):
+        for j in range(i * 2, 10000001, i):
+            n[j] += 1
+            
+    print(len([i for i in range(2,10000000) if n[i] == n[i+1]]))
+    
+    
 def euler348():
     from itertools import count
     import math
