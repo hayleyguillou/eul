@@ -511,6 +511,27 @@ def euler92():
     print(count)     
     
     
+def euler95():
+    def get_proper_divisors(n):
+        return {x for x in range(1, (n + 1) // 2 + 1) if n % x == 0 and n != x}
+        
+    maxlen = 0
+    minel = 0
+    
+    
+    for x in range(12496,1000000):
+        chain = [x]
+        next = sum(get_proper_divisors(x))
+        while next not in chain and next != 1 and next < 1000000:
+            chain.append(next)
+            next = sum(get_proper_divisors(next))
+        if x == next:
+            if len(chain) > maxlen:
+                maxlen = len(chain)
+                minel = min(chain)
+        print(x,maxlen,minel)
+    
+    
 def euler112():
     prop, numBouncy, curr = 0,0,0
     while prop < 0.99:
