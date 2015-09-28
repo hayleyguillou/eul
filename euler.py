@@ -128,6 +128,32 @@ def euler29():
 def euler30():
     print (sum([x for x in range(2,1000000) if sum([y**5 for y in getDigits(x)]) == x]))
 
+def euler33():
+    from fractions import gcd
+
+    def get_digits(n):
+        return [int(i) for i in str(n)]
+        
+    fracs = []
+    for d in range(10,100):
+        for n in range(10,d):
+            common = set(get_digits(n)).intersection(get_digits(d))
+            for digit in common:
+                if digit:
+                    r_n = int(str(n).replace(str(digit), "", 1))
+                    r_d = int(str(d).replace(str(digit), "", 1))
+                    if r_d and r_n/r_d == n/d:
+                        fracs.append((n,d))
+                        print(n,'/',d,r_n,'/',r_d)
+    
+    n = 1
+    d = 1
+    for frac in fracs:
+        n *= frac[0]
+        d *= frac[1]
+    
+    print(d/gcd(n,d))
+
 #
 def euler34():
     import math
@@ -259,6 +285,23 @@ def euler38():
             iter += 1
     print(max)
     
+def euler39():
+    maxlen = 0
+    the_p = 0
+    for p in range(3,1001):
+        sols = set()
+        for c in range(int(p/3)+ 1, p-1):
+            for b in range(1, p-c-1):
+                a = p - c - b
+                if a**2 + b**2 == c**2:
+                    sols.add(tuple(sorted([a,b,c])))
+        if len(sols) > maxlen:
+            maxlen = len(sols)
+            the_p = p
+        print(p, the_p, maxlen)
+            
+    print(p)
+    
     
 def euler40():
     num = ''.join([str(x) for x in range(0,1000000)])
@@ -330,9 +373,102 @@ def euler45():
     print(T&H&P)
     
     
+def euler46():
+    import math
+    def sieve(n):
+        # returns all primes between 2 and n
+        s = [True]*(n + 1)
+        s[0], s[1] = False, False
+    
+        for i in range(2, int(math.sqrt(n))):
+            curr = i + i
+            while curr <= n:
+                s[curr] = False
+                curr += i
+        return [i for i in range(len(s)) if s[i] is True]
+        
+    primes = sieve(10000)
+    squares = [x**2 for x in range(1,int(math.sqrt(10000/2)))]
+    print(squares)
+    
+    for i in range(25,10000,2):
+        if i not in primes:
+            possibles = [p for p in primes if p < i ]
+            works = False
+            for p in possibles:
+                test = i
+                test -= p
+                if test/2 == int(test/2) and test/2 in squares:
+                    works = True
+                    #return i
+                    #print(i,' = ',p,' + 2 * ',test/2)
+                    break
+            if not works:
+                print('Sol:', i)
+                break
+    
+def euler47():
+    import math
+    import itertools
+    def sieve(n):
+        # returns all primes between 2 and n
+        s = [True]*(n + 1)
+        s[0], s[1] = False, False
+    
+        for i in range(2, int(math.sqrt(n))):
+            curr = i + i
+            while curr <= n:
+                s[curr] = False
+                curr += i
+        return [i for i in range(len(s)) if s[i] is True]
+    
+    def get_proper_divisors(n):
+        return {x for x in range(1, (n + 1) // 2 + 1) if n % x == 0 and n != x}
+        
+    def eul47():
+        curr_n = 0
+        primes = sieve(1000000)
+        for n in range(20000,2000000):
+            if len(set(get_proper_divisors(n).intersection(primes))) != 4:
+                curr_n = 0
+            elif not curr_n:
+                curr_n = n
+            elif n - curr_n == 3:
+                return curr_n
+            if curr_n: print(n, n-curr_n)
+    print(eul47())
+    
+    
 def euler48():
     print (sum([ (i**i)%(10**10) for i in range(1, 1001) ])%(10**10))
 
+
+def euler49():
+	import math
+    import itertools
+    def sieve(n):
+        # returns all primes between 2 and n
+        s = [True]*(n + 1)
+        s[0], s[1] = False, False
+    
+        for i in range(2, int(math.sqrt(n))):
+            curr = i + i
+            while curr <= n:
+                s[curr] = False
+                curr += i
+        return [i for i in range(len(s)) if s[i] is True]
+    
+    def eul49():    
+        primes = sieve(10000)
+        for prime in primes:
+            if prime > 1000:
+                perms = set([int(''.join(p)) for p in itertools.permutations(str(prime)) if int(''.join(p)) > 1000])
+                inter = sorted(list(perms.intersection(primes)))
+                if len(inter) >= 3:
+                    for combo in itertools.combinations(inter, 3):
+                        if combo[0] != 1487 and combo[2]-combo[1] == combo[1]-combo[0]:
+                            return ''.join(sorted([str(p) for p in combo]))
+    print(eul49())
 
 def euler50():
     #DOESN'T STOP????
@@ -511,6 +647,27 @@ def euler92():
     print(count)     
     
     
+def euler95():
+    def get_proper_divisors(n):
+        return {x for x in range(1, (n + 1) // 2 + 1) if n % x == 0 and n != x}
+        
+    maxlen = 0
+    minel = 0
+    
+    
+    for x in range(12496,1000000):
+        chain = [x]
+        next = sum(get_proper_divisors(x))
+        while next not in chain and next != 1 and next < 1000000:
+            chain.append(next)
+            next = sum(get_proper_divisors(next))
+        if x == next:
+            if len(chain) > maxlen:
+                maxlen = len(chain)
+                minel = min(chain)
+        print(x,maxlen,minel)
+    
+    
 def euler112():
     prop, numBouncy, curr = 0,0,0
     while prop < 0.99:
@@ -561,6 +718,15 @@ def euler125():
                 conseq += 1
                     
     eul125(100000000)
+    
+    
+def euler179():
+    n = [0]*10000001
+    for i in range(2, int(10000000/2)):
+        for j in range(i * 2, 10000001, i):
+            n[j] += 1
+            
+    print(len([i for i in range(2,10000000) if n[i] == n[i+1]]))
     
     
 def euler348():
