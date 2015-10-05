@@ -298,6 +298,20 @@ def eul30():
     return sum([x for x in range(2, 1000000) if sum([y ** 5 for y in eul.get_digits(x)]) == x])
 
 
+def eul32():
+    """"Find the sum of all products whose multiplicand/multiplier/product identity can be written as a
+    1 through 9 pandigital."""
+    products = set()
+    for product in range(1000, 10000):
+        if len(set(eul.get_digits(product))) == len(str(product)):
+            for i in eul.get_proper_divisors(product):
+                j = int(product / i)
+                test = ''.join([str(i), str(j), str(i*j)])
+                if len(test) == 9 and eul.pandigital(test):
+                    products.add(i*j)
+    return sum(products)
+
+
 def eul34():
     """Find the sum of all numbers which are equal to the sum of the factorial of their digits."""
     return sum([i for i in range(3, 100000) if sum([math.factorial(x) for x in eul.get_digits(i)]) == i])
@@ -371,6 +385,7 @@ print("Euler solution 24:  ", eul24())
 print("Euler solution 25:  ", eul25())
 print("Euler solution 29:  ", eul29())
 print("Euler solution 30:  ", eul30())
+print("Euler solution 32:  ", eul32())
 print("Euler solution 34:  ", eul34())
 print("Euler solution 36:  ", eul36())
 print("Euler solution 38:  ", eul38())
