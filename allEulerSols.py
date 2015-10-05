@@ -37,7 +37,7 @@ def eul5():
     primer = functools.reduce(operator.mul, eul.sieve(20), 1)
     for i in range(primer, math.factorial(20) + 1, primer):
         divisible = True
-        for factor in range(1, 20+1):
+        for factor in range(1, 20 + 1):
             if i % factor != 0:
                 divisible = False
                 break
@@ -177,6 +177,7 @@ def eul16():
 def eul17():
     """If all the numbers from 1 to 1000 (one thousand) inclusive were written out in words,
     how many letters would be used?"""
+
     def get_digits(i):
         three = {1, 2, 6, 10}
         four = {4, 5, 9}
@@ -263,7 +264,7 @@ def eul22():
     with open('resources/names.txt') as f:
         names = f.read().split(',')
         names.sort()
-    return sum(i*sum(ord(c) - 64 for c in x.strip('"')) for i, x in enumerate(names, 1))
+    return sum(i * sum(ord(c) - 64 for c in x.strip('"')) for i, x in enumerate(names, 1))
 
 
 def eul23():
@@ -306,9 +307,9 @@ def eul32():
         if len(set(eul.get_digits(product))) == len(str(product)):
             for i in eul.get_proper_divisors(product):
                 j = int(product / i)
-                test = ''.join([str(i), str(j), str(i*j)])
+                test = ''.join([str(i), str(j), str(i * j)])
                 if len(test) == 9 and eul.pandigital(test):
-                    products.add(i*j)
+                    products.add(i * j)
     return sum(products)
 
 
@@ -338,6 +339,7 @@ def eul34():
 
 def eul35():
     """How many circular primes are there below one million?"""
+
     def check_digits(m):
         while m > 0:
             digit = m % 10
@@ -381,7 +383,7 @@ def eul37():
         while left > 0 and prime:
             if left not in primes:
                 prime = False
-            left = int(left/10)
+            left = int(left / 10)
 
         if prime:
             iterator = 10
@@ -444,6 +446,22 @@ def eul41():
             return p
 
 
+def eul43():
+    """Find the sum of all 0 to 9 pandigital numbers with this property (See online)"""
+
+    def is_divisible(p):
+        divisors = [2, 3, 5, 7, 11, 13, 17]
+        for i in range(0, len(divisors)):
+            num = 100 * int(p[i + 1]) + 10 * int(p[i + 2]) + int(p[i + 3])
+            if num % divisors[i] != 0:
+                return False
+        return True
+
+    init = [''.join(p) for p in itertools.permutations('0123456789') if
+            p[0] != '0' and p[5] == '5' and int(p[3]) % 2 == 0]
+    return sum([int(p) for p in init if is_divisible(p)])
+
+
 def eul67():
     """Find the maximum total from top to bottom of the triangle below (maximumPath2.txt):"""
     text_file = open("resources/maximumPath2.txt", "r")
@@ -493,4 +511,5 @@ print("Euler solution 38:  ", eul38())
 print("Euler solution 39:  ", eul39())
 print("Euler solution 40:  ", eul40())
 print("Euler solution 41:  ", eul41())
+print("Euler solution 43:  ", eul43())
 print("Euler solution 67:  ", eul67())

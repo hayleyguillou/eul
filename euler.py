@@ -49,31 +49,6 @@ def euler25():
     print (index)
 
 
-def euler41():
-    import math
-
-    def is_pandigital(n, s=9): n=str(n); return len(n)==s and not '1234567890'[:s].strip(n)
-    
-    def is_prime(n):
-        n = int(n)
-        if n == 2 or n == 3: return True
-        if n < 2 or n%2 == 0: return False
-        if n < 9: return True
-        if n%3 == 0: return False
-        r = int(math.sqrt(n))
-        f = 5
-        while f <= r:
-            if n%f == 0: return False
-            if n%(f+2) == 0: return False
-            f +=6
-        return True
-    
-        
-    
-    for p in range(7654321,1,-2):
-        if is_pandigital(p, 7) and is_prime(p):
-            print(p)
-            break
     
 def euler43():
     from itertools import permutations
