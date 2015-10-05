@@ -473,6 +473,16 @@ def eul44():
                 return int(n-m)
 
 
+def eul45():
+    """Find the next triangle number that is also pentagonal and hexagonal."""
+    i = 143
+    while i:
+        i += 1
+        hexagonal = i * (2 * i - 1)
+        if eul.pentagonal(hexagonal):
+            return hexagonal
+
+
 def eul67():
     """Find the maximum total from top to bottom of the triangle below (maximumPath2.txt):"""
     text_file = open("resources/maximumPath2.txt", "r")
@@ -524,4 +534,5 @@ print("Euler solution 40:  ", eul40())
 print("Euler solution 41:  ", eul41())
 print("Euler solution 43:  ", eul43())
 print("Euler solution 44:  ", eul44())
+print("Euler solution 45:  ", eul45())
 print("Euler solution 67:  ", eul67())

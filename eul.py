@@ -99,6 +99,16 @@ def palindrome(n):
     return True if (str(n))[::-1] == str(n) else False
 
 
+def triangular(n):
+    t = (math.sqrt(8 * n + 1) - 1)/2
+    return int(t) == t
+
+
 def pentagonal(n):
     p = (math.sqrt(24 * n + 1) + 1)/6
     return int(p) == p
+
+
+def hexagonal(n):
+    h = (math.sqrt(8 * n + 1) + 1)/4
+    return int(h) == h

@@ -50,46 +50,6 @@ def euler25():
 
 
     
-def euler43():
-    from itertools import permutations
-    
-    def is_divisible(p):
-    	divisors = [2,3,5,7,11,13,17]
-    	for i in range(0, len(divisors)):
-    		num = 100 * int(p[i+1]) + 10 * int(p[i+2]) + int(p[i+3])
-    		if num % divisors[i] != 0:
-    			return False
-    	return True
-    
-    def eul43():
-    	"""Find the sum of all 0 to 9 pandigital numbers with this property (See online)"""
-    	init = [''.join(p) for p in permutations('0123456789') if p[0]!='0' and p[5]=='5' and int(p[3])%2==0]
-    	return sum([int(p) for p in init if is_divisible(p)])
-    
-    print(eul43())
-    # 16695334890
-    
-def euler44():
-    P = [ ( ( p * (3 * p - 1 ) ) / 2 ) for p in range(1, 3000) ]
-
-    for p in P:
-        for q in P[P.index(p):]:
-            if (p+q) in P and math.fabs(p-q) in P:
-                print (math.fabs(p-q))
-                
-                
-def euler45():
-    T,H,P = set(), set(), set()
-    for n in range(1,200000):
-        t = n + 285
-        p = n + 165
-        h = n + 143
-        T.add( ( t * (t+1) ) / 2 )
-        P.add( ( p * (3 * p - 1 ) ) / 2 )
-        H.add( h * (2 * h - 1 ) )
-    print(T&H&P)
-    
-    
 def euler46():
     import math
     def sieve(n):
