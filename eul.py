@@ -17,7 +17,7 @@ def get_digits(n):
 
 
 def num_len(n):
-    return int(math.log10(n))+1
+    return int(math.log10(n)) + 1
 
 
 def pandigital(n, s=9):
@@ -35,10 +35,10 @@ def odd(n):
 
 def get_proper_divisors(n):
     return {x for x in range(1, (n + 1) // 2 + 1) if n % x == 0 and n != x}
-    
+
 
 def get_factors(n):
-    return set(reduce(list.__add__, ([i, n//i] for i in range(1, int(n**0.5) + 1) if n % i == 0)))
+    return set(reduce(list.__add__, ([i, n // i] for i in range(1, int(n ** 0.5) + 1) if n % i == 0)))
 
 
 def get_prime_factors(n):
@@ -58,7 +58,7 @@ def get_prime_factors(n):
 
 def sieve(n):
     # returns all primes between 2 and n
-    s = [True]*(n + 1)
+    s = [True] * (n + 1)
     s[0], s[1] = False, False
 
     for i in range(2, int(math.sqrt(n))):
@@ -69,17 +69,25 @@ def sieve(n):
     return [i for i in range(len(s)) if s[i] is True]
 
 
-def sieve8(n):
-    """Return an array of the primes below n."""
-    prime = numpy.ones(n//3 + (n % 6 == 2), dtype=numpy.bool)
-    for i in range(3, int(n**.5) + 1, 3):
-        if prime[i // 3]:
-            p = (i + 1) | 1
-            prime[p*p//3::2*p] = False
-            prime[p*(p-2*(i & 1)+4)//3::2*p] = False
-    result = (3 * prime.nonzero()[0] + 1) | 1
-    result[0] = 3
-    return numpy.r_[2, result]
+def prime(n):
+    n = int(n)
+    if n == 2 or n == 3:
+        return True
+    if n < 2 or n % 2 == 0:
+        return False
+    if n < 9:
+        return True
+    if n % 3 == 0:
+        return False
+    r = int(math.sqrt(n))
+    f = 5
+    while f <= r:
+        if n % f == 0:
+            return False
+        if n % (f + 2) == 0:
+            return False
+        f += 6
+    return True
 
 
 def palindrome(n):

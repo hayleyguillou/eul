@@ -437,6 +437,13 @@ def eul40():
     return functools.reduce(operator.mul, [int(num[10 ** n]) for n in range(0, 6)], 1)
 
 
+def eul41():
+    """What is the largest n-digit pandigital prime that exists?"""
+    for p in range(7654321, 1, -2):
+        if eul.pandigital(p, 7) and eul.prime(p):
+            return p
+
+
 def eul67():
     """Find the maximum total from top to bottom of the triangle below (maximumPath2.txt):"""
     text_file = open("resources/maximumPath2.txt", "r")
@@ -485,4 +492,5 @@ print("Euler solution 37:  ", eul37())
 print("Euler solution 38:  ", eul38())
 print("Euler solution 39:  ", eul39())
 print("Euler solution 40:  ", eul40())
+print("Euler solution 41:  ", eul41())
 print("Euler solution 67:  ", eul67())
