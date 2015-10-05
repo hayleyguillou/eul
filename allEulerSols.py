@@ -462,6 +462,17 @@ def eul43():
     return sum([int(p) for p in init if is_divisible(p)])
 
 
+def eul44():
+    """Find the pair of pentagonal numbers, Pj and Pk, for which their sum and difference are pentagonal
+    and D = |Pk − Pj| is minimised; what is the value of D?"""
+    for i in range(2,3000):
+        n = i * (3 * i - 1) / 2
+        for j in range(i - 1, 0, -1):
+            m = j * (3 * j - 1) / 2
+            if eul.pentagonal(n - m) and eul.pentagonal(n + m):
+                return int(n-m)
+
+
 def eul67():
     """Find the maximum total from top to bottom of the triangle below (maximumPath2.txt):"""
     text_file = open("resources/maximumPath2.txt", "r")
@@ -512,4 +523,5 @@ print("Euler solution 39:  ", eul39())
 print("Euler solution 40:  ", eul40())
 print("Euler solution 41:  ", eul41())
 print("Euler solution 43:  ", eul43())
+print("Euler solution 44:  ", eul44())
 print("Euler solution 67:  ", eul67())

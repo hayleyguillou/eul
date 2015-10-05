@@ -90,5 +90,15 @@ def prime(n):
     return True
 
 
+# ---------------------------------------------------------------------------------------
+# OTHER NUMBER FUNCTIONS
+# ---------------------------------------------------------------------------------------
+
+
 def palindrome(n):
     return True if (str(n))[::-1] == str(n) else False
+
+
+def pentagonal(n):
+    p = (math.sqrt(24 * n + 1) + 1)/6
+    return int(p) == p
