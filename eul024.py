@@ -2,43 +2,43 @@ from itertools import permutations
 
 
 def eul24(n):
-	"""What is the n = millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?"""
-	return sorted([''.join(p) for p in permutations('0123456789')])[n-1]
+    """What is the n = millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?"""
+    return sorted([''.join(p) for p in permutations('0123456789')])[n - 1]
 
 
 def eul24bf():
     """What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?"""
-    max = 10
+    maximum = 10
 
-    checker = [False] * max
+    checker = [False] * maximum
     num = 1
-    for a in range(0, max):
+    for a in range(0, maximum):
         checker[a] = True
-        for b in range(0, max):
+        for b in range(0, maximum):
             if not checker[b]:
                 checker[b] = True
-                for c in range(0, max):
+                for c in range(0, maximum):
                     if not checker[c]:
                         checker[c] = True
-                        for d in range(0, max):
+                        for d in range(0, maximum):
                             if not checker[d]:
                                 checker[d] = True
-                                for e in range(0, max):
+                                for e in range(0, maximum):
                                     if not checker[e]:
                                         checker[e] = True
-                                        for f in range(0, max):
+                                        for f in range(0, maximum):
                                             if not checker[f]:
                                                 checker[f] = True
-                                                for g in range(0, max):
+                                                for g in range(0, maximum):
                                                     if not checker[g]:
                                                         checker[g] = True
-                                                        for h in range(0, max):
+                                                        for h in range(0, maximum):
                                                             if not checker[h]:
                                                                 checker[h] = True
-                                                                for i in range(0, max):
+                                                                for i in range(0, maximum):
                                                                     if not checker[i]:
                                                                         checker[i] = True
-                                                                        for j in range(0, max):
+                                                                        for j in range(0, maximum):
                                                                             if not checker[j]:
                                                                                 checker[j] = True
                                                                                 if num % 1000000 == 0:

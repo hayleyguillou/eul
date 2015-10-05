@@ -122,56 +122,6 @@ def euler25():
     print (index)
 
 
-def euler29():
-    return (len(set([(a**b) for a in range(2,101) for b in range(2,101)])))
-
-def euler30():
-    print (sum([x for x in range(2,1000000) if sum([y**5 for y in getDigits(x)]) == x]))
-
-def euler33():
-    from fractions import gcd
-
-    def get_digits(n):
-        return [int(i) for i in str(n)]
-        
-    fracs = []
-    for d in range(10,100):
-        for n in range(10,d):
-            common = set(get_digits(n)).intersection(get_digits(d))
-            for digit in common:
-                if digit:
-                    r_n = int(str(n).replace(str(digit), "", 1))
-                    r_d = int(str(d).replace(str(digit), "", 1))
-                    if r_d and r_n/r_d == n/d:
-                        fracs.append((n,d))
-                        print(n,'/',d,r_n,'/',r_d)
-    
-    n = 1
-    d = 1
-    for frac in fracs:
-        n *= frac[0]
-        d *= frac[1]
-    
-    print(d/gcd(n,d))
-
-#
-def euler34():
-    import math
-
-    specials = []
-    for i in range(3,100000):
-        digits = []
-        temp = i
-        while temp > 0:
-            digits.append(temp % 10)
-            temp = int(temp/10)
-
-        factorialSum = sum([ math.factorial(x) for x in digits ])
-
-        if factorialSum == i:
-            specials.append(i)
-            print (specials)
-
 
 def euler35():
 	import math

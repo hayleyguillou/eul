@@ -312,6 +312,25 @@ def eul32():
     return sum(products)
 
 
+def eul33():
+    """If the product of these four fractions is given in its lowest common terms, find the value of the denominator."""
+    fracs = []
+    for d in range(10, 100):
+        for n in range(10, d):
+            common = set(eul.get_digits(n)).intersection(eul.get_digits(d))
+            for digit in common:
+                if digit:
+                    r_n = int(str(n).replace(str(digit), "", 1))
+                    r_d = int(str(d).replace(str(digit), "", 1))
+                    if r_d and r_n / r_d == n / d:
+                        fracs.append((n, d))
+    n = d = 1
+    for frac in fracs:
+        n *= frac[0]
+        d *= frac[1]
+    return d / math.gcd(n, d)
+
+
 def eul34():
     """Find the sum of all numbers which are equal to the sum of the factorial of their digits."""
     return sum([i for i in range(3, 100000) if sum([math.factorial(x) for x in eul.get_digits(i)]) == i])
@@ -386,6 +405,7 @@ print("Euler solution 25:  ", eul25())
 print("Euler solution 29:  ", eul29())
 print("Euler solution 30:  ", eul30())
 print("Euler solution 32:  ", eul32())
+print("Euler solution 33:  ", eul33())
 print("Euler solution 34:  ", eul34())
 print("Euler solution 36:  ", eul36())
 print("Euler solution 38:  ", eul38())
