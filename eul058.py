@@ -36,6 +36,6 @@ while num_primes/num_diag > 0.1:
         if prime(curr):
             num_primes += 1
     adder += 2
-    print(math.sqrt(curr))
+
     
 print(adder - 1)
