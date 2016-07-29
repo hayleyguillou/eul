@@ -82,24 +82,6 @@ def euler47():
             if curr_n: print(n, n-curr_n)
     print(eul47())
 
-
-
-def euler52():
-    def getDigits(n):
-        return sorted([int(i) for i in str(n)], key=int)
-
-    found = False
-    i = 1
-    while not found:
-        n = getDigits(2*i)
-        if getDigits(3*i)== n:
-            if getDigits(4*i) == n:
-                if getDigits(5*i) == n:
-                    if getDigits(6*i)== n:
-                        print (i)
-                        found = True
-        i += 1
-
         
 def euler53():
     fac = math.factorial

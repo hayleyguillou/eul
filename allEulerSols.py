@@ -707,6 +707,18 @@ def eul52():
     return i
 
 
+def eul53():
+    """How many, not necessarily distinct, values of  nCr, for 1 ≤ n ≤ 100, are greater than one-million?"""
+    fac = math.factorial
+    count = 0
+    for n in range(23, 101):
+        for r in range(n, 0, -1):
+            val = fac(n)/(fac(r)*fac(n-r))
+            if val > 1000000:
+                count += 1
+    return count
+
+
 def eul67():
     """Find the maximum total from top to bottom of the triangle below (maximumPath2.txt):"""
     text_file = open("resources/maximumPath2.txt", "r")
@@ -771,7 +783,7 @@ print("Euler solution 49:  ", eul49())
 print("Euler solution 50:  ", eul50())
 print("Euler solution 51:  ", eul51())
 print("Euler solution 52:  ", eul52())
-print("Euler solution 53:  ")
+print("Euler solution 53:  ", eul53())
 print("Euler solution 54:  ")
 print("Euler solution 55:  ")
 print("Euler solution 56:  ")
