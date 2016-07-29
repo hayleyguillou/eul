@@ -607,6 +607,11 @@ def eul47():
             return curr_n
 
 
+def eul48():
+    """Find the last ten digits of the series, 1 + 2 + 3 + ... + n = 1000."""
+    return sum([(i**i) % (10**10) for i in range(1, 1001)]) % (10**10)
+
+
 def eul67():
     """Find the maximum total from top to bottom of the triangle below (maximumPath2.txt):"""
     text_file = open("resources/maximumPath2.txt", "r")

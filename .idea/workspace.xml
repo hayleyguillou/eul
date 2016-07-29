@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d64f0e62-26f5-4c2d-b3a1-68e691ba5cbf" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/eul048.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/allEulerSols.py" afterPath="$PROJECT_DIR$/allEulerSols.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eul027.py" afterPath="$PROJECT_DIR$/eul027.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eul028.py" afterPath="$PROJECT_DIR$/eul028.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eul031.py" afterPath="$PROJECT_DIR$/eul031.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eul042.py" afterPath="$PROJECT_DIR$/eul042.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="eul.iws" />
@@ -28,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="allEulerSols.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="allEulerSols.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/allEulerSols.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.0761421">
-              <caret line="669" column="29" selection-start-line="669" selection-start-column="29" selection-end-line="669" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="611" column="70" selection-start-line="611" selection-start-column="70" selection-end-line="611" selection-end-column="70" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -50,21 +47,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="eul001.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/eul001.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="euler.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/euler.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="62" column="24" selection-start-line="62" selection-start-column="24" selection-end-line="62" selection-end-column="24" />
+              <caret line="86" column="4" selection-start-line="86" selection-start-column="4" selection-end-line="86" selection-end-column="69" />
+              <folding>
+                <element signature="e#116#127#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="eul048.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/eul048.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.19035533">
+              <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -97,7 +96,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/eul006.py" />
         <option value="$PROJECT_DIR$/eul008.py" />
         <option value="$PROJECT_DIR$/eul009.py" />
         <option value="$PROJECT_DIR$/eul012.py" />
@@ -148,6 +146,7 @@
         <option value="$PROJECT_DIR$/eul031.py" />
         <option value="$PROJECT_DIR$/eul042.py" />
         <option value="$PROJECT_DIR$/allEulerSols.py" />
+        <option value="$PROJECT_DIR$/eul048.py" />
       </list>
     </option>
   </component>
@@ -274,7 +273,7 @@
       <recent name="$PROJECT_DIR$/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.eul042">
+  <component name="RunManager" selected="Python.eul048">
     <configuration default="false" name="allEulerSols" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -288,23 +287,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="eul" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/allEulerSols.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="eul027" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="eul" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/eul027.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -356,6 +338,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="eul" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/eul031.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="eul048" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="eul" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/eul048.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -484,18 +483,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.allEulerSols" />
-      <item index="1" class="java.lang.String" itemvalue="Python.eul027" />
-      <item index="2" class="java.lang.String" itemvalue="Python.eul028" />
-      <item index="3" class="java.lang.String" itemvalue="Python.eul042" />
-      <item index="4" class="java.lang.String" itemvalue="Python.eul031" />
+      <item index="1" class="java.lang.String" itemvalue="Python.eul028" />
+      <item index="2" class="java.lang.String" itemvalue="Python.eul042" />
+      <item index="3" class="java.lang.String" itemvalue="Python.eul031" />
+      <item index="4" class="java.lang.String" itemvalue="Python.eul048" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.eul042" />
-        <item index="1" class="java.lang.String" itemvalue="Python.eul031" />
-        <item index="2" class="java.lang.String" itemvalue="Python.allEulerSols" />
-        <item index="3" class="java.lang.String" itemvalue="Python.eul028" />
-        <item index="4" class="java.lang.String" itemvalue="Python.eul027" />
+        <item index="0" class="java.lang.String" itemvalue="Python.eul048" />
+        <item index="1" class="java.lang.String" itemvalue="Python.eul042" />
+        <item index="2" class="java.lang.String" itemvalue="Python.eul031" />
+        <item index="3" class="java.lang.String" itemvalue="Python.allEulerSols" />
+        <item index="4" class="java.lang.String" itemvalue="Python.eul028" />
       </list>
     </recent_temporary>
   </component>
@@ -584,13 +583,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/eul020.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="5" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/eul016.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -837,14 +829,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eul001.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/eul026.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -878,14 +862,6 @@
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/euler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="62" column="24" selection-start-line="62" selection-start-column="24" selection-end-line="62" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -945,6 +921,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/eul001.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2284264">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/eul042.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -953,13 +937,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/euler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="86" column="4" selection-start-line="86" selection-start-column="4" selection-end-line="86" selection-end-column="69" />
+          <folding>
+            <element signature="e#116#127#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/allEulerSols.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0761421">
-          <caret line="669" column="29" selection-start-line="669" selection-start-column="29" selection-end-line="669" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="611" column="70" selection-start-line="611" selection-start-column="70" selection-end-line="611" selection-end-column="70" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eul048.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19035533">
+          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
