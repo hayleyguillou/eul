@@ -43,13 +43,35 @@ def get_factors(n):
 
 def get_prime_factors(n):
     primes = sieve(int(math.sqrt(n)) + 1)
+    # print(primes)
     factors, i = [], 0
     while n > 1:
+        # print(i, n)
         while n % primes[i] == 0:
             factors.append(primes[i])
             n /= primes[i]
         i += 1
     return factors
+
+
+def num_prime_factors(sieve_list, n):
+    nod = 0
+    remain = n
+
+    for i in range(0, len(sieve_list)):
+        if sieve_list[i] * sieve_list[i] > n:
+            return nod + 1
+
+        pf = False
+        while remain % sieve_list[i] == 0:
+            pf = True
+            remain = remain / sieve_list[i]
+        if pf:
+            nod += 1
+
+        if remain == 1:
+            return nod
+    return nod
 
 
 # ---------------------------------------------------------------------------------------

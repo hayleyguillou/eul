@@ -50,43 +50,10 @@ def euler25():
 
 
     
-def euler46():
-    import math
-    def sieve(n):
-        # returns all primes between 2 and n
-        s = [True]*(n + 1)
-        s[0], s[1] = False, False
-    
-        for i in range(2, int(math.sqrt(n))):
-            curr = i + i
-            while curr <= n:
-                s[curr] = False
-                curr += i
-        return [i for i in range(len(s)) if s[i] is True]
-        
-    primes = sieve(10000)
-    squares = [x**2 for x in range(1,int(math.sqrt(10000/2)))]
-    print(squares)
-    
-    for i in range(25,10000,2):
-        if i not in primes:
-            possibles = [p for p in primes if p < i ]
-            works = False
-            for p in possibles:
-                test = i
-                test -= p
-                if test/2 == int(test/2) and test/2 in squares:
-                    works = True
-                    #return i
-                    #print(i,' = ',p,' + 2 * ',test/2)
-                    break
-            if not works:
-                print('Sol:', i)
-                break
+
     
 def euler47():
     import math
-    import itertools
     def sieve(n):
         # returns all primes between 2 and n
         s = [True]*(n + 1)
