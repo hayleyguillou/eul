@@ -16,6 +16,10 @@ def get_digits(n):
     return [int(i) for i in str(n)]
 
 
+def get_sorted_digits(n):
+    return sorted([int(i) for i in str(n)], key=int)
+
+
 def num_len(n):
     return int(math.log10(n)) + 1
 

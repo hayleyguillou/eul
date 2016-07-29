@@ -693,6 +693,20 @@ def eul51():
             return min([x.group(0) for x in p.finditer(primes)])
 
 
+def eul52():
+    """Find the smallest positive integer, x, such that 2x, 3x, 4x, 5x, and 6x, contain the same digits."""
+    i = 1
+    while 1:
+        n = eul.get_sorted_digits(2*i)
+        if eul.get_sorted_digits(3*i)== n:
+            if eul.get_sorted_digits(4*i) == n:
+                if eul.get_sorted_digits(5*i) == n:
+                    if eul.get_sorted_digits(6*i) == n:
+                        break
+        i += 1
+    return i
+
+
 def eul67():
     """Find the maximum total from top to bottom of the triangle below (maximumPath2.txt):"""
     text_file = open("resources/maximumPath2.txt", "r")
@@ -756,7 +770,7 @@ print("Euler solution 48:  ", eul48())
 print("Euler solution 49:  ", eul49())
 print("Euler solution 50:  ", eul50())
 print("Euler solution 51:  ", eul51())
-print("Euler solution 52:  ")
+print("Euler solution 52:  ", eul52())
 print("Euler solution 53:  ")
 print("Euler solution 54:  ")
 print("Euler solution 55:  ")
