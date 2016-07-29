@@ -83,22 +83,6 @@ def euler47():
     print(eul47())
 
 
-
-def euler55():
-    lycs = []
-
-    for num in range(1, 10000):
-        i = num
-        found, iter = False, 0
-        while not found and iter < 50:
-            i += int((str(i))[::-1])
-            if (str(i))[::-1] == str(i):
-                found = True
-            iter += 1
-        if not found:
-            lycs.append(num)
-
-    print (len(lycs))
         
 def euler56():
     def digits(n):

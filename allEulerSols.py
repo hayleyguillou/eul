@@ -765,6 +765,17 @@ def eul55():
     return len(lycs)
 
 
+def eul56():
+    """Considering natural numbers of the form, a^b, where a, b < 100, what is the maximum digital sum?"""
+    max_sum = 0
+    for a in range(1, 100):
+        for b in range(1, 100):
+            digit_sum = eul.get_digit_sum(a**b)
+            if digit_sum > max_sum:
+                max_sum = digit_sum
+    return max_sum
+
+
 def eul67():
     """Find the maximum total from top to bottom of the triangle below (maximumPath2.txt):"""
     text_file = open("resources/maximumPath2.txt", "r")
@@ -831,8 +842,8 @@ print("Euler solution 51:  ", eul51())
 print("Euler solution 52:  ", eul52())
 print("Euler solution 53:  ", eul53())
 print("Euler solution 54:  ", eul54())
-print("Euler solution 55:  ")
-print("Euler solution 56:  ")
+print("Euler solution 55:  ", eul55())
+print("Euler solution 56:  ", eul56())
 print("Euler solution 57:  ")
 print("Euler solution 58:  ")
 print("Euler solution 59:  ")
