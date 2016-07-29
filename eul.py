@@ -118,7 +118,7 @@ def prime(n):
 
 
 def palindrome(n):
-    return True if (str(n))[::-1] == str(n) else False
+    return (str(n))[::-1] == str(n)
 
 
 def triangular(n):
