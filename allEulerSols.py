@@ -626,6 +626,24 @@ def eul49():
                         return ''.join(sorted([str(p) for p in combo]))
 
 
+def eul50():
+    """Which prime, below n = one-million, can be written as the sum of the most consecutive primes?"""
+    primes = eul.sieve(1000000)
+    consecutive = 0
+    maximum = 0
+
+    for start in range(0, len(primes) - 2):
+        r = 2 + consecutive
+        for num in range(r, len(primes) - start):
+            test = sum(primes[i] for i in range(start, start + num))
+            if test > 1000000:
+                break
+            if test in primes and num > consecutive:
+                consecutive = num
+                maximum = test
+    return maximum
+
+
 def eul67():
     """Find the maximum total from top to bottom of the triangle below (maximumPath2.txt):"""
     text_file = open("resources/maximumPath2.txt", "r")
@@ -685,7 +703,7 @@ print("Euler solution 44:  ", eul44())
 print("Euler solution 45:  ", eul45())
 print("Euler solution 46:  ", eul46())
 print("Euler solution 47:  ", eul47())
-print("Euler solution 48:  ")
-print("Euler solution 49:  ")
-print("Euler solution 50:  ")
+print("Euler solution 48:  ", eul48())
+print("Euler solution 49:  ", eul49())
+print("Euler solution 50:  ", eul50())
 print("Euler solution 67:  ", eul67())
