@@ -82,16 +82,6 @@ def euler47():
             if curr_n: print(n, n-curr_n)
     print(eul47())
 
-        
-def euler53():
-    fac = math.factorial
-    count = 0
-    for n in range(23,101):
-        for r in range(n,0, -1):
-            val = fac(n)/(fac(r)*fac(n-r))
-            if val > 1000000:
-                count += 1
-    print (count)
 
 
 def euler55():

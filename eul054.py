@@ -2,6 +2,7 @@ import poker
 
 
 def eul54():
+    """How many hands does Player 1 win?"""
     hands = [hand.rstrip('\n') for hand in open('resources/p054_poker.txt')]
 
     p1_count = 0

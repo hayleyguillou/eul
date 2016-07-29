@@ -20,6 +20,10 @@ def get_sorted_digits(n):
     return sorted([int(i) for i in str(n)], key=int)
 
 
+def reverse_digits(n):
+    return int((str(n))[::-1])
+
+
 def num_len(n):
     return int(math.log10(n)) + 1
 

@@ -721,6 +721,7 @@ def eul53():
 
 
 def eul54():
+    """How many hands does Player 1 win?"""
     hands = [hand.rstrip('\n') for hand in open('resources/p054_poker.txt')]
     p1_count = 0
     p2_count = 0
@@ -747,6 +748,21 @@ def eul54():
                 else:
                     p2_count += 1
     return p1_count
+
+
+def eul55():
+    """How many Lychrel numbers are there below n = ten-thousand?"""
+    lycs = []
+    for num in range(1, 10000):
+        i = num
+        found, itr = False, 0
+        while not found and itr < 50:
+            i += eul.reverse_digits(i)
+            found = eul.palindrome(i)
+            itr += 1
+        if not found:
+            lycs.append(num)
+    return len(lycs)
 
 
 def eul67():
