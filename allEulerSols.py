@@ -4,6 +4,8 @@ import functools
 import operator
 import itertools
 import calendar
+import re
+import collections
 
 
 def eul1():
@@ -644,6 +646,53 @@ def eul50():
     return maximum
 
 
+def eul51():
+    """Find the smallest prime which, by replacing part of the number (not necessarily adjacent digits)
+    with the same digit, is part of an eight prime value family."""
+
+    primes = " ".join([str(i) for i in eul.sieve(1000000) if i > 100000])
+    combos = itertools.product(range(2), repeat=6)
+
+    for combo in combos:
+        if len(set(combo)) == 1:
+            continue
+        possibilities = []
+        for i in range(10):
+            reg = r""
+            for digit in range(6):
+                if combo[digit] == 1:
+                    reg += "["+str(i)+"]"
+                else:
+                    reg += "\d"
+            p = re.compile(reg)
+            possibilities.extend(p.findall(primes))
+
+        for i in range(6):
+            if combo[i] == 1:
+                new_p = []
+                for p in possibilities:
+                    l = list(p)
+                    l[i] = "*"
+                    new_p.append("".join(l))
+                possibilities = new_p
+        c = collections.Counter(possibilities)
+        if c.most_common(1)[0][1] == 8:
+            num = c.most_common(1)[0][0]
+            reg = r""
+            f = True
+            for i in num:
+                if i == "*":
+                    if f:
+                        reg += r"(\d)"
+                        f = False
+                    else:
+                        reg += r"\1"
+                else:
+                    reg += r"["+str(i)+r"]"
+            p = re.compile(reg)
+            return min([x.group(0) for x in p.finditer(primes)])
+
+
 def eul67():
     """Find the maximum total from top to bottom of the triangle below (maximumPath2.txt):"""
     text_file = open("resources/maximumPath2.txt", "r")
@@ -706,4 +755,22 @@ print("Euler solution 47:  ", eul47())
 print("Euler solution 48:  ", eul48())
 print("Euler solution 49:  ", eul49())
 print("Euler solution 50:  ", eul50())
+print("Euler solution 51:  ", eul51())
+print("Euler solution 52:  ")
+print("Euler solution 53:  ")
+print("Euler solution 54:  ")
+print("Euler solution 55:  ")
+print("Euler solution 56:  ")
+print("Euler solution 57:  ")
+print("Euler solution 58:  ")
+print("Euler solution 59:  ")
+print("Euler solution 60:  ")
+print("Euler solution 61:  ")
+print("Euler solution 62:  ")
+print("Euler solution 63:  ")
+print("Euler solution 64:  ")
+print("Euler solution 65:  ")
+print("Euler solution 66:  ")
 print("Euler solution 67:  ", eul67())
+print("Euler solution 68:  ")
+print("Euler solution 69:  ")

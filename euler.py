@@ -81,7 +81,7 @@ def euler47():
                 return curr_n
             if curr_n: print(n, n-curr_n)
     print(eul47())
-    
+
 
 
 def euler52():
