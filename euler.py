@@ -83,27 +83,7 @@ def euler47():
     print(eul47())
 
 
-        
-def euler56():
-    def digits(n):
-        d = []
-        while n > 0:
-            d.append(n % 10)
-            n = int(n/10)
-        return d
 
-    import math
-
-    maxDigitSum = 0
-
-    for base in range(1, 100):
-        for expo in range(1, 100):
-            digitSum = sum(digits(math.pow(base, expo)))
-            if digitSum > maxDigitSum:
-                maxDigitSum = digitSum
-            print (base, expo, digitSum, maxDigitSum)    
-
-    print (maxDigitSum)
     
 def euler63():
     p = set()

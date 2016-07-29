@@ -776,6 +776,25 @@ def eul56():
     return max_sum
 
 
+def eul57():
+    """In the first one-thousand expansions,
+    how many fractions contain a numerator with more digits than denominator?"""
+    count = 0
+    for i in range(1, 1001):
+        num = 1
+        den = 2
+        for j in range(i-1, 0, -1):
+            num += 2 * den
+            tmp = den
+            den = num
+            num = tmp
+        num += den
+
+        if eul.num_len(num) > eul.num_len(den):
+            count += 1
+    return count
+
+
 def eul67():
     """Find the maximum total from top to bottom of the triangle below (maximumPath2.txt):"""
     text_file = open("resources/maximumPath2.txt", "r")
@@ -844,7 +863,7 @@ print("Euler solution 53:  ", eul53())
 print("Euler solution 54:  ", eul54())
 print("Euler solution 55:  ", eul55())
 print("Euler solution 56:  ", eul56())
-print("Euler solution 57:  ")
+print("Euler solution 57:  ", eul57())
 print("Euler solution 58:  ")
 print("Euler solution 59:  ")
 print("Euler solution 60:  ")
