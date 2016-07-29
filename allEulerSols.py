@@ -815,6 +815,16 @@ def eul58():
     return adder - 1
 
 
+def eul59():
+    """Decrypt the message and find the sum of the ASCII values in the original text."""
+    cipher = [c.rstrip('\n') for c in open('resources/p059_cipher.txt')]
+    cipher = [int(c) for c in cipher[0].split(",")]
+    for key in itertools.product(range(97, 123), repeat=3):
+        msg = [x ^ y for x, y in zip(cipher, itertools.cycle(key))]
+        if ' the ' in ''.join(map(chr, msg)):
+            return sum(msg)
+
+
 def eul67():
     """Find the maximum total from top to bottom of the triangle below (maximumPath2.txt):"""
     text_file = open("resources/maximumPath2.txt", "r")
@@ -885,7 +895,7 @@ print("Euler solution 55:  ", eul55())
 print("Euler solution 56:  ", eul56())
 print("Euler solution 57:  ", eul57())
 print("Euler solution 58:  ", eul58())
-print("Euler solution 59:  ")
+print("Euler solution 59:  ", eul59())
 print("Euler solution 60:  ")
 print("Euler solution 61:  ")
 print("Euler solution 62:  ")
