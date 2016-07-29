@@ -795,6 +795,26 @@ def eul57():
     return count
 
 
+def eul58():
+    """See web for spiral pattern.
+     If this process is continued, what is the side length of the square spiral for which the ratio of primes
+     along both diagonals first falls below n = 10%?"""
+    num_diag = 5
+    num_primes = 3
+    curr = 9
+    adder = 4
+
+    while num_primes/num_diag > 0.1:
+        for j in range(4):
+            curr += adder
+            num_diag += 1
+            if eul.prime(curr):
+                num_primes += 1
+        adder += 2
+
+    return adder - 1
+
+
 def eul67():
     """Find the maximum total from top to bottom of the triangle below (maximumPath2.txt):"""
     text_file = open("resources/maximumPath2.txt", "r")
@@ -864,7 +884,7 @@ print("Euler solution 54:  ", eul54())
 print("Euler solution 55:  ", eul55())
 print("Euler solution 56:  ", eul56())
 print("Euler solution 57:  ", eul57())
-print("Euler solution 58:  ")
+print("Euler solution 58:  ", eul58())
 print("Euler solution 59:  ")
 print("Euler solution 60:  ")
 print("Euler solution 61:  ")
