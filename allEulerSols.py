@@ -6,6 +6,7 @@ import itertools
 import calendar
 import re
 import collections
+import poker
 
 
 def eul1():
@@ -719,6 +720,35 @@ def eul53():
     return count
 
 
+def eul54():
+    hands = [hand.rstrip('\n') for hand in open('resources/p054_poker.txt')]
+    p1_count = 0
+    p2_count = 0
+
+    for line in hands:
+        line = line.split(" ")
+        p1 = line[:5]
+        p2 = line[5:]
+        s1 = poker.score(p1)
+        s2 = poker.score(p2)
+
+        if s1[0] > s2[0]:
+            p1_count += 1
+        elif s2[0] > s1[0]:
+            p2_count += 1
+        else:
+            if s1[1] > s2[1]:
+                p1_count += 1
+            elif s2[1] > s1[1]:
+                p2_count += 1
+            else:
+                if poker.high_card(p1, p2):
+                    p1_count += 1
+                else:
+                    p2_count += 1
+    return p1_count
+
+
 def eul67():
     """Find the maximum total from top to bottom of the triangle below (maximumPath2.txt):"""
     text_file = open("resources/maximumPath2.txt", "r")
@@ -784,7 +814,7 @@ print("Euler solution 50:  ", eul50())
 print("Euler solution 51:  ", eul51())
 print("Euler solution 52:  ", eul52())
 print("Euler solution 53:  ", eul53())
-print("Euler solution 54:  ")
+print("Euler solution 54:  ", eul54())
 print("Euler solution 55:  ")
 print("Euler solution 56:  ")
 print("Euler solution 57:  ")
