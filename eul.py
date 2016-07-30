@@ -34,7 +34,15 @@ def pandigital(n, s=9):
 
 
 def odd(n):
-    return True if len([d for d in str(n) if int(d) % 2 == 0]) == 0 else False
+    return len([d for d in str(n) if int(d) % 2 == 0]) == 0
+
+
+def even(n):
+    return n % 2 == 0
+
+
+def append_ints(n, m):
+    return int(str(n) + str(m))
 
 
 # ---------------------------------------------------------------------------------------
@@ -99,6 +107,19 @@ def sieve(n):
     return [i for i in range(len(s)) if s[i] is True]
 
 
+def sieve_array(n):
+    # returns all primes between 2 and n
+    s = [True] * (n + 1)
+    s[0], s[1] = False, False
+
+    for i in range(2, int(math.sqrt(n))):
+        curr = i + i
+        while curr <= n:
+            s[curr] = False
+            curr += i
+    return s
+
+
 def prime(n):
     n = int(n)
     if n == 2 or n == 3:
@@ -123,6 +144,19 @@ def prime(n):
 # ---------------------------------------------------------------------------------------
 # OTHER NUMBER FUNCTIONS
 # ---------------------------------------------------------------------------------------
+
+
+def perfect_sq(n):
+    return isqrt(n)**2 == n
+
+
+def isqrt(n):
+    x = n
+    y = (x + 1) // 2
+    while y < x:
+        x = y
+        y = (x + n // x) // 2
+    return x
 
 
 def palindrome(n):
